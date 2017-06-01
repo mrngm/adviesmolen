@@ -1,0 +1,247 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="nl" xml:lang="nl-NL">
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <link rel="stylesheet" href="/presentation/screen.css" type="text/css" media="screen" />
+        <!--[if IE 8]><link rel="stylesheet" href="/presentation/ie/ie8.css" type="text/css" media="screen" /><![endif]-->
+        <!--[if lte IE 7]><link rel="stylesheet" href="/presentation/ie/ie7.css" type="text/css" media="screen" /><![endif]-->
+        <!--[if lte IE 6]><link rel="stylesheet" href="/presentation/ie/ie6.css" type="text/css" media="screen" /><![endif]-->
+        <link rel="stylesheet" href="/presentation/print.css" type="text/css" media="print" />
+        <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+        <title>NCSC-2017-0516 [1.00] | NCSC</title>
+<script src="/behavior/detect.js" type="text/javascript"></script>
+    </head>
+
+    <body id="content">
+        <div class="container equalize red">
+            <div class="skiplink">
+    Ga direct naar:<ul>
+        <li><a href="#hoofd_content" title="Direct naar de inhoud">inhoud</a></li>
+        <li><a href="#subnavigatie" title="Direct naar de subnavigatie">subnavigatie</a></li>
+        <li><a href="#service_menu" title="Direct naar het service menu">servicemenu</a></li>
+        <li><a href="#zoeken" title="Direct naar zoeken">zoeken</a></li>
+    </ul>
+</div><div class="header">
+    <span></span>
+    <div class="branding"><a href="/"><img src="/logos/NCSC_Logo_NL.png" alt="Nationaal Cyber Security Centrum - Ministerie van Veiligheid en Justitie" height="87" width="500" /></a></div>
+        <div class="nav_bar">
+        <h3>Hoofdnavigatie</h3>
+<ul class="nav_main mainnavigation">
+    <li><a href="/" title="Home">Home</a></li>
+                    <li><a href="/actueel" title="Actueel">Actueel</a></li>
+                    <li><a href="/incident-response" title="Incident Response">Incident Response</a></li>
+                    <li><a href="/expertise-advies" title="Expertise & Advies">Expertise & Advies</a></li>
+                    <li><a href="/samenwerking" title="Samenwerking">Samenwerking</a></li>
+                    <li><a href="/organisatie" title="Organisatie">Organisatie</a></li>
+                    <li><a href="/english/conference" title="Conference">Conference</a></li>
+                    </ul><div class="search">
+
+    <form method="get" action="/zoeken" id="zoeken" accept-charset="UTF-8">
+        <fieldset>
+            <legend>Zoeken</legend>
+            <ol>
+                <li>
+                    <label for="zoek_trefwoord">zoekresultaten voor</label>
+                    <input type="text" class="text" name="query" id="zoek_trefwoord" />
+                    <input type="submit" value="zoek" class="submit" />
+                </li>
+            </ol>
+        </fieldset>
+    </form>
+    <ul>
+        <li><a href="/sitemap" title="Sitemap">Sitemap</a></li>
+
+            <li><a href="/geavanceerd-zoeken" title="Uitgebreid zoeken">Uitgebreid zoeken</a></li>
+
+            </ul>
+</div></div>
+
+</div><div class="content_wrapper1">
+                <div class="content_wrapper2">
+                    <div class="content">
+    <div class="breadcrumb">
+        <p>
+    <em>U bevindt zich op:</em>
+    <span>
+        <a href="/" title="Homepagina">Home</a>
+        <span class="imgreplacement">&rsaquo;</span>
+    </span>
+    </p></div>
+    <div class="content_main" id="hoofd_content">
+    <h1>Beveiligingsadvies</h1>
+        <div class="advisoryitem">
+            <h2>
+                <span class="level2" title="Kansniveau is gemiddeld">
+                    <span class="text">Kansniveau is gemiddeld</span>
+                </span>
+                <span class="level2" title="Schadeniveau is gemiddeld">
+                    <span class="text">Schadeniveau is gemiddeld</span>
+                </span>
+                NCSC-2017-0516 [1.00]
+            </h2>
+            <h3>Verschillende kwetsbaarheden in Xen opgelost </h3>
+            <p>
+                <span class="meta">01-06-2017</span>
+                 - De makers van Xen hebben een aantal patches uitgebracht die een drietal kwetsbaarheden oplost.</p>
+            <pre>-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA256
+
+   #####################################################
+  ##  N C S C ~ B E V E I L I G I N G S A D V I E S  ##
+ #####################################################
+
+Titel           : Verschillende kwetsbaarheden in Xen opgelost 
+Advisory ID     : NCSC-2017-0516
+Versie          : 1.00
+Kans            : medium
+CVE ID          : CVE-2017-8903, CVE-2017-8904, CVE-2017-8905
+                  (http://cve.mitre.org/cve/)
+Schade          : medium
+                  Denial-of-Service (DoS)
+                  Toegang tot gevoelige gegevens
+Uitgiftedatum   : 20170601
+Toepassing      : Xen Hypervisor
+Versie(s)       : Xen 4.8.x, Xen 4.7.x, Xen 4.6.x en Xen 4.5.x
+Platform(s)     : Linux
+
+Samenvatting
+   De makers van Xen hebben een aantal patches uitgebracht die een
+   drietal kwetsbaarheden oplost.
+
+Gevolgen
+   Een kwaadwillende kan de kwetsbaarheid misbruiken voor het
+   verkrijgen van informatie van het systeem. Verder kan de
+   kwetsbaarheid mogelijk misbruikt worden om een Denial-of-Service te
+   veroorzaken.
+
+Beschrijving
+   - CVE-2017-8905
+   In sommige gevallen kan Xen een zogenaamde failsafe callback
+   aanroepen die de stack corrumpeert. Een kwaadwillende kan dit
+   mogelijk misbruiken om ongeautoriseerd geheugen te manipuleren.
+   Alleen 64-bit Xen versies 4.6 en eerder zijn kwetsbaar, Xen versies
+   4.7 (en latere versies) niet.
+   
+   - CVE-2017-8904
+   de GNTTABOP_transfer procedure staat een gast toe om informatie te
+   verplaatsen van &eacute;&eacute;n gastsysteem naar een andere gast systeem. De
+   informatie van de operatie wordt niet gewist waardoor een aanvaller
+   mogelijk gevoelige informatie kan inzien. Alleen x86 systemen zijn
+   gevoelig voor deze kwetsbaarheid. ARM systemen kennen deze
+   kwetsbaarheid niet.
+   
+   - CVE-2017-8903
+   De IRET hypercall functie bevat een kwetsbaarheid  die aanvaller in
+   een gastsysteem mogelijk laat schrijven naar page tables waar
+   normaliter geen toegang toe is. De IRET functie wordt gebruikt door
+   gast-kernels om de controle van kernelmode om te schakelen naar
+   usermode.
+
+Mogelijke oplossingen
+   Xen heeft patches uitgebracht om de kwetsbaarheid te verhelpen. Zie
+   voor meer informatie:
+   
+   http://xenbits.xen.org/xsa/advisory-215.html (CVE-2017-8905)
+   http://xenbits.xen.org/xsa/advisory-214.html (CVE-2017-8904)
+   http://xenbits.xen.org/xsa/advisory-213.html (CVE-2017-8903)
+
+Vrijwaringsverklaring
+   Door gebruik van deze security advisory gaat u akkoord met de
+   navolgende voorwaarden. Ondanks dat het NCSC de grootst mogelijke
+   zorg heeft betracht bij de samenstelling van dit beveiligingsadvies,
+   kan het NCSC niet instaan voor de volledigheid, juistheid of
+   (voortdurende) actualiteit van dit beveiligingsadvies. De informatie
+   in dit beveiligingsadvies is uitsluitend bedoeld als algemene
+   informatie voor professionele partijen. Aan de informatie in dit
+   beveiligingsadvies kunnen geen rechten worden ontleend. Het NCSC
+   en de Staat zijn niet aansprakelijk voor enige schade ten gevolge
+   van het gebruik of de onmogelijkheid van het gebruik van dit 
+   beveiligingsadvies, waaronder begrepen schade ten gevolge van de 
+   onjuistheid of onvolledigheid van de informatie in dit
+   beveiligingsadvies. Op dit beveiligingsadvies is Nederlands recht
+   van toepassing. Alle geschillen in verband met en/of voortvloeiend
+   uit dit beveiligingsadvies zullen worden voorgelegd aan de exclusief
+   bevoegde rechter te Den Haag. Deze rechtskeuze geldt tevens voor de
+   voorzieningenrechter in kort geding.
+
+
+-----BEGIN PGP SIGNATURE-----
+Version: Encryption Desktop 10.3.2 (Build 16620)
+Charset: utf-8
+
+wsDVAwUBWS/ZiChuEbXFfhL2AQgfMAv/bq+IA23LTubmtkcHdsLnL8jxgSaWrrGB
+3lybsxYDjdx3UANnwScPGNZdX72SCU9D9fv2n6O40OvNPH/61dR+9rH8WZZBO3tZ
+hkk6iGWyb0DH0RWI/oyyp5sTf5m3Ms0u+1TH4bPv8aSFKBSWSMgjR7UdHN2cUT28
+eHbOEv573ij8ngqNSF/t1wKxT69Nh0pqzVT7dTkSMOiOdkkBfr4Gc9LlAP6r7yWN
+9yt0ZFtNtY1wXxTAqL7ceq8izY+lRNMOttDBBXwMnsLiICFr7/s+r3MV8LoglMXh
+6nIdX8uCDmBSuNI1jjwIA/PJcnA2QQEbJZO3tRbnok18lchJchV1/X8LE6yLgPog
+LVoT7TgmAff+YUyYPPp4udO7iCEIskCi+bV99Q37+28/65En7xibD/1YTu1LqeYK
+RXpf2wyQirJX6H7wtDJv0xmt1nnPyuRLeXMbXjqkrNlHpijd9qDXYC2OqHNurVxc
+7ZzRC6e8sOVvISY28kci1fnWTUDWGtfd
+=HTwT
+-----END PGP SIGNATURE-----</pre>
+        </div>
+
+
+    </div>
+<div class="content_add">
+        <div class="mod box open lighter">
+               <h2 class="head">Over het NCSC</h2>
+               <p class="full">
+                   <a href="/organisatie" title="Over het NCSC">
+                       <img src="/binaries/banner_large/content/gallery/ncsc/banner/venj-310112-3023.jpg" width="206" alt="NCSCstill"  title="Over het NCSC" />
+                   </a>
+               </p>
+           </div>
+       <div class="mod box open lighter">
+               <h2 class="head">CSBN 2016</h2>
+               <p class="full">
+                   <a href="/actueel/Cybersecuritybeeld+Nederland/cybersecuritybeeld-nederland-2016.html" title="CSBN 2016">
+                       <img src="/binaries/banner_large/content/gallery/ncsc/csbn-2016_kaft.jpg" width="206" alt="CSBN 2016"  title="CSBN 2016" />
+                   </a>
+               </p>
+           </div>
+       </div>
+
+    <div class="nav_sub" id="subnavigatie">
+    </div></div>
+</div>
+            </div>
+            <div class="func_links" id="service_menu">
+    <h3>Tools</h3>
+<ul class="left">
+    <li class=""><a class="rss" href="/rss" title="RSS">RSS</a></li>
+            <li class="font_size">Tekstgrootte&nbsp;
+        <a href="#" title="Tekst kleiner maken" class="imgreplacement minus">&minus;</a>
+        <a href="#" title="Tekst groter maken" class="imgreplacement plus">+</a>
+        </li>
+</ul><h3>Service</h3>
+<ul class="right">
+    <li><a href="/english" title="English" hreflang="en-US" lang="en-US">English</a></li>
+
+            <li><a href="/contact" title="Contact">Contact</a></li>
+
+            <li><a href="/help" title="Help">Help</a></li>
+
+            </ul></div>
+
+<div class="footer">
+    <div class="ref footerlogo"></div>
+    <span></span>
+</div>
+
+
+
+</div>
+        <div class="container func_links bottom" id="service_menu_bottom">
+            <h3>Voorwaarden</h3>
+<ul class="right">
+    <li><a href="/gebruikersvoorwaarden" title="Gebruiksvoorwaarden">Gebruiksvoorwaarden</a></li>
+
+            <li><a href="/privacy-statement" title="Privacy statement">Privacy statement</a></li>
+
+            </ul></div>
+        <script type="text/javascript" src="/behavior/libs/jquery-1.6.4.min.js"></script>
+        <script type="text/javascript" src="/behavior/init.js"></script>
+    </body>
+</html>
