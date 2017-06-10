@@ -19,7 +19,7 @@ def extract_advisory(url):
 
     # https://xkcd.com/1181/
     if advisory[0:34] != "-----BEGIN PGP SIGNED MESSAGE-----":
-        raise ValueError("extract_advisory: advisory does not have the expected format")
+        raise ValueError("extract_advisory: advisory does not have the expected format\n{}".format(advisory))
     return advisory
 
 def parse_advisory(advisory):
