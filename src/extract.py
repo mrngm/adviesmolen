@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 from lxml import etree
+from urllib.request import urlopen
 
 import sys
 import re
@@ -10,10 +11,11 @@ def extract_advisory(url):
     try:
         parser = etree.HTMLParser()
         tree = etree.parse(url, parser)
-        adv = tree.xpath('//pre')
-        advisory = adv[0].text
-    except:
-        pass
+    except IOError:
+        tree = etree.parse(urlopen(url), parser)
+
+    adv = tree.xpath('//pre')
+    advisory = adv[0].text
 
     # https://xkcd.com/1181/
     if advisory[0:34] != "-----BEGIN PGP SIGNED MESSAGE-----":
@@ -37,7 +39,7 @@ def parse_advisory(advisory):
         "schade":      r"^Schade\s+:(?P<schade>.*)(?P<schaderest>(\n +.*)+)?",
         "datum":       r"^Uitgiftedatum\s+:(?P<datum>.*)(?P<datumrest>(\n +.*)+)?",
         "toepassing":  r"^Toepassing\s+:(?P<toepassing>.*)(?P<toepassingrest>(\n +.*)+)?",
-        "versie":      r"^Versie\(s\)\s+:(?P<versie>.*)(?P<versierest>(\n +.*)+)?",
+        "tpversie":    r"^Versie\(s\)\s+:(?P<tpversie>.*)(?P<tpversierest>(\n +.*)+)?",
         "platform":    r"^Platform\(s\)\s+:(?P<platform>.*)(?P<platformrest>(\n +.*)*)?",
         "samenvatting":r"^Samenvatting\s*\n(?P<samenvatting>\s+.*)(?P<samenvattingrest>(\n +.*)*)?",
         "beschrijving":r"^Beschrijving\s*\n(?P<beschrijving>\s+.*)(?P<beschrijvingrest>(\n +.*)*)?",
@@ -59,8 +61,8 @@ def parse_advisory(advisory):
 def pretty_print(parsed_advisory):
     kans   = parsed_advisory['kans'][0:1].upper()
     schade = parsed_advisory['schade'][0:1].upper()
-    print("{}/{}, {}: {}".format(kans, schade, parsed_advisory['advisoryid'], parsed_advisory['titel']))
+    print("{}/{}, {} ({}): {}".format(kans, schade, parsed_advisory['advisoryid'], parsed_advisory['versie'], parsed_advisory['titel']))
 
-pretty_print(parse_advisory(extract_advisory("./testpagina.html")))
+pretty_print(parse_advisory(extract_advisory(sys.argv[1])))
 
 # vim: set et:ts=4:sw=4:
